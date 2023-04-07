@@ -55,7 +55,10 @@ export class TableComponent implements OnInit {
   }
 
   resetFilter(data){
-    this.employeeData = this.originaldata;
+    this.employeeData = []
+    if(data){
+      this.employeeData = this.originaldata;
+    }
   }
 
   sortData(type){
