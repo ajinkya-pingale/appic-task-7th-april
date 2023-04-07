@@ -1,3 +1,6 @@
-<div>
-  <app-child-table *ngIf="employeeData.length > 0" [tableData]="employeeData" ></app-child-table>
+<div *ngIf="employeeData.length > 0">
+  <app-child-table [tableData]="employeeData" [columnKeys]="tableColumn" ></app-child-table>
+</div>
+<div style="background-color: red; padding: 10px; text-align: center; " *ngIf="errorMsg">
+  <span style="color: #fff; text-align: center; font-weight: bold; " >{{errorMsg?.message}}</span>
 </div>

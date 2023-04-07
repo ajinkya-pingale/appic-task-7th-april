@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child-table',
@@ -6,10 +6,10 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./child-table.component.css']
 })
 export class ChildTableComponent implements OnInit {
-  @Output() tableData;
+  @Input() tableData;
+  @Input() columnKeys;
+  defaultImage = 'https://tse1.mm.bing.net/th?id=OIP.JFFvVxqETnP44eSu7bbWPQHaHa&pid=Api&P=0&w=300&h=300'
   constructor() {
-    console.log(this.tableData)
-
    }
 
   ngOnInit(): void {

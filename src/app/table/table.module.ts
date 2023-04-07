@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TableRoutingModule } from './table-routing.module';
 import { TableComponent } from './table.component';
 import { ChildTableComponent } from './child-table/child-table.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ChildTableComponent } from './child-table/child-table.component';
   ],
   imports: [
     CommonModule,
-    TableRoutingModule
+    TableRoutingModule,
+    LazyLoadImageModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

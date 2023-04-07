@@ -11,7 +11,7 @@ export class TableComponent implements OnInit {
   constructor(private commonService: CommonService) { }
   employeeData = []
   tableColumn = []
-  errorMsg: any;
+  errorMsg: any = null;
   ngOnInit(): void {
     this.getEmployeeData()
   }
@@ -27,12 +27,9 @@ export class TableComponent implements OnInit {
               this.tableColumn.push(eachKey)
             }
           }
-          console.log(this.tableColumn)
-          console.log(this.employeeData)
         }
       },error=>{
-        console.log(error)
-        this.errorMsg = error;
+        this.errorMsg = error['error'];
       }
     )
   }
