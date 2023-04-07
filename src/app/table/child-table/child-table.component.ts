@@ -11,8 +11,9 @@ export class ChildTableComponent implements OnInit {
   @Input() filterOptions;
   @Output() addFilter = new EventEmitter();
   @Output() resetFilter = new EventEmitter();
+  @Output() sortData = new EventEmitter();
   selctedAgeRange = {}
-
+  ascending: boolean = null;
   defaultImage = 'https://tse1.mm.bing.net/th?id=OIP.JFFvVxqETnP44eSu7bbWPQHaHa&pid=Api&P=0&w=300&h=300'
   constructor() {
    }
@@ -27,6 +28,14 @@ export class ChildTableComponent implements OnInit {
 
   applyFilter(){
     this.addFilter.emit(this.selctedAgeRange);
+  }
+
+  applySort(type){
+    this.ascending = true;
+    if(type != 'asc'){
+      this.ascending = false
+    }
+    this.sortData.emit(type)
   }
 
   resetAllFilter(){

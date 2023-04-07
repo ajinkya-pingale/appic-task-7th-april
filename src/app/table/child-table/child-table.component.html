@@ -1,17 +1,20 @@
 
 <div style="padding: 20px; display: flex; flex-direction: row; justify-content: flex-end; " >
+  <button style="width: 5%; margin-right: 20px; background-color: green; color: #fff; border: green; cursor: pointer; " *ngIf="!ascending" (click)="applySort('asc')" >Ascending</button>
+  <button style="width: 5%; margin-right: 20px; background-color: green; color: #fff; border: green; cursor: pointer; "  *ngIf="ascending"  (click)="applySort('desc')" >Descending</button>
+
   <select style="width: 10%; padding: 5px; margin-right: 20px;" [(ngModel)]="selctedAgeRange" (change)='onRangeSelect($event)'>
     <option>Select an Option</option>
     <option *ngFor="let eachData of filterOptions">
        {{eachData?.label}}
     </option>
  </select>
- <button style="width: 5%; margin-right: 20px; background-color: green; color: #fff; border: green; " (click)="applyFilter()" >Apply</button>
- <button style="width: 5%; margin-right: 20px; background-color: red; color: #fff; border: #fff;" (click)="resetAllFilter()" >Reset</button>
+ <button style="width: 5%; margin-right: 20px; background-color: green; color: #fff; border: green; cursor: pointer; " (click)="applyFilter()" >Apply</button>
+ <button style="width: 5%; margin-right: 20px; background-color: red; color: #fff; border: #fff; cursor: pointer;" (click)="resetAllFilter()" >Reset</button>
 </div>
 <table id="customers">
   <tr>
-    <th *ngFor="let eachKey of columnKeys">{{eachKey}}</th>
+    <th *ngFor="let eachKey of columnKeys">{{eachKey}}  </th>
   </tr>
   <tr *ngFor="let eachData of tableData">
     <td *ngFor="let eachKey of columnKeys">

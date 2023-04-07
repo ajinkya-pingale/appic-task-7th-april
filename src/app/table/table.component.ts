@@ -55,8 +55,16 @@ export class TableComponent implements OnInit {
   }
 
   resetFilter(data){
-    if(data){
-      this.employeeData = this.originaldata;
+    this.employeeData = this.originaldata;
+  }
+
+  sortData(type){
+    this.employeeData = []
+    var sortingData = this.originaldata
+    if(type == 'asc'){
+      this.employeeData = sortingData.sort((a,b) => a.employee_salary - b.employee_salary)
+    }else{
+      this.employeeData = sortingData.sort((a,b) => b.employee_salary - a.employee_salary)
     }
   }
 

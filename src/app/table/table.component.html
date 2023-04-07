@@ -1,6 +1,18 @@
-<div >
-  <app-child-table [tableData]="employeeData" [columnKeys]="tableColumn" [filterOptions]="ageRangeOption" (addFilter)="filterData($event)" (resetFilter)="resetFilter($event)" ></app-child-table>
+<div>
+  <app-child-table
+    [tableData]="employeeData"
+    [columnKeys]="tableColumn"
+    [filterOptions]="ageRangeOption"
+    (addFilter)="filterData($event)"
+    (resetFilter)="resetFilter($event)"
+    (sortData)="sortData($event)"
+  ></app-child-table>
 </div>
-<div style="background-color: red; padding: 10px; text-align: center; " *ngIf="errorMsg">
-  <span style="color: #fff; text-align: center; font-weight: bold; " >{{errorMsg?.message}}</span>
+<div
+  style="background-color: red; padding: 10px; text-align: center"
+  *ngIf="errorMsg"
+>
+  <span style="color: #fff; text-align: center; font-weight: bold">{{
+    errorMsg?.message
+  }}</span>
 </div>
