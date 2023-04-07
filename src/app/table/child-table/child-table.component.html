@@ -1,4 +1,14 @@
 
+<div style="padding: 20px; display: flex; flex-direction: row; justify-content: flex-end; " >
+  <select style="width: 10%; padding: 5px; margin-right: 20px;" [(ngModel)]="selctedAgeRange" (change)='onRangeSelect($event)'>
+    <option>Select an Option</option>
+    <option *ngFor="let eachData of filterOptions">
+       {{eachData?.label}}
+    </option>
+ </select>
+ <button style="width: 5%; margin-right: 20px; background-color: green; color: #fff; border: green; " (click)="applyFilter()" >Apply</button>
+ <button style="width: 5%; margin-right: 20px; background-color: red; color: #fff; border: #fff;" (click)="resetAllFilter()" >Reset</button>
+</div>
 <table id="customers">
   <tr>
     <th *ngFor="let eachKey of columnKeys">{{eachKey}}</th>
@@ -9,7 +19,7 @@
       <img *ngIf="eachKey == 'profile_image'"
                         [defaultImage]="defaultImage"
                         [lazyLoad]="eachData[eachKey]"
-                        style="width: 10%; height: 70px; border-radius: 20px"
+                        style="width: 70px; height: 70px; border-radius: 20px"
                       />
     </td>
   </tr>
