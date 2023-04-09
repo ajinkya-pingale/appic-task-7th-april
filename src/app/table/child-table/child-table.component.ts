@@ -40,6 +40,7 @@ export class ChildTableComponent implements OnInit {
 
   resetAllFilter(){
     this.selctedAgeRange = null;
+    this.ascending = null;
     this.resetFilter.emit(true)
   }
 

@@ -45,10 +45,8 @@ export class TableComponent implements OnInit {
   filterData(event){
     this.employeeData = []
     let selectedAgeRange = this.ageRangeOption.find((e)=>e['label'] == event);
-    console.log(event, selectedAgeRange)
     for( let eachEmployee of this.originaldata ){
       if(eachEmployee.employee_age <= selectedAgeRange['value'] && eachEmployee?.employee_age > (selectedAgeRange['value'] - 20) ){
-        console.log(eachEmployee.employee_age);
         this.employeeData.push(eachEmployee)
       }
     }
@@ -56,8 +54,9 @@ export class TableComponent implements OnInit {
 
   resetFilter(data){
     this.employeeData = []
+    var sortingData = this.originaldata
     if(data){
-      this.employeeData = this.originaldata;
+      this.employeeData = sortingData.sort((a, b) => a.id - b.id)
     }
   }
 
